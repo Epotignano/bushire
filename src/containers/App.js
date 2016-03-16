@@ -3,6 +3,7 @@
 import React, {PropTypes} from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { default as Header } from "../components/Header";
 import { default as NavBar } from "../components/NavBar";
 import Firebase from 'firebase';
 import { FireRef } from '../constants/Commons';
@@ -22,6 +23,7 @@ class App extends React.Component{
   render() {
     return (
       <div>
+        <Header />
         <NavBar/>
         <main className="ui page grid main content-container">
           <div className="row">

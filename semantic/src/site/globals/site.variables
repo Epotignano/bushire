@@ -20,14 +20,15 @@
 @disabledOpacity: 0.3;
 
 /* Colors */
-@skyblue: #00adff
+@skyblue: #00adff;
 
 @blue: #80A6CD;
 @green: #78CB5B;
 @orange: #D26911;
 @black: #333333;
+@red: #d4222b;
 @primaryColor: @skyblue ;
-@secondaryColor: @black;
+@secondaryColor: @red;
 
 /* Links */
 @linkColor: #4078C0;

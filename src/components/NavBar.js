@@ -10,48 +10,20 @@ import { Link } from "react-router";
 import UserAvatar  from './userAvatar';
 import Firebase from 'firebase';
 import { FireRef, UidRef } from '../constants/Commons';
-var uid = localStorage.getItem(UidRef);
-function generateRightMenu(isAuthenticated, router) {
-  if(isAuthenticated) {
-    return(
-    <a className="ui dropdown item"><UserAvatar className="item"/>
-      <i className="dropdown icon"></i>
-      <div className="menu">
-        <div className="item">マイページ</div>
-        <div className="item" onClick={ router.push('app/' + uid + '/audition/creation')}>New audition</div>
-        <div className="ui divider"></div>
-        <div className="item">ログアウト</div>
-      </div>
-    </a>
-    )
-  }
 
-  return(
-    <Link className="item" to="/access/login">ログイン</Link>
-  )
-}
+var uid = localStorage.getItem(UidRef);
 
 class NavBar extends React.Component {
-  componentDidMount() {
-    $('.ui.dropdown.item').dropdown();
-  }
-
-  componentDidUpdate() {
-    $('.ui.dropdown.item').dropdown('refresh')
-  }
   render() {
     const instance = new Firebase(FireRef);
     const { router } = this.context;
 
     return (
-      <nav className="ui inverted fixed menu navbar page grid">
-        <div className="row">
-          <div className="ui inverted fixed menu navbar page grid">
-            <div className="right menu">
-              { generateRightMenu(instance.getAuth(), router) }
-            </div>
-          </div>
-        </div>
+      <nav className="ui menu">
+              <Link className="item" to="/">Airport Transfers</Link>
+              <Link className="item" to="/">Charters & Hill</Link>
+              <Link className="item" to="/">Fleet</Link>
+              <Link className="item" to="/">Optional services</Link>
       </nav>
     )
   }
