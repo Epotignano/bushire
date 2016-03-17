@@ -3,7 +3,6 @@
 *******************************/
 
 
-@pageMinWidth  : 1049px;
 @pageOverflowX : visible;
 
 @emSize: 13px;
@@ -26,9 +25,9 @@
 @green: #78CB5B;
 @orange: #D26911;
 @black: #333333;
-@red: #d4222b;
+@red: #d4222d;
 @primaryColor: @skyblue ;
-@secondaryColor: @red;
+@secondaryColor: @black;
 
 /* Links */
 @linkColor: #4078C0;
