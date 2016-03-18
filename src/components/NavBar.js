@@ -19,7 +19,7 @@ class NavBar extends React.Component {
     const { router } = this.context;
 
     return (
-      <nav className="ui menu">
+      <nav className="ui menu navbar grid">
               <Link className="item" to="/">Airport Transfers</Link>
               <Link className="item" to="/">Charters & Hill</Link>
               <Link className="item" to="/">Fleet</Link>
