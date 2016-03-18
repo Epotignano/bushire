@@ -9,6 +9,7 @@ import { default as Banner } from "../components/Banner";
 import { default as Services } from "../components/Services";
 import { default as Pos } from "../components/Pos";
 import { default as PriceGalery } from "../components/PriceGalery";
+import { default as Footer } from "../components/Footer";
 import Firebase from 'firebase';
 import { FireRef } from '../constants/Commons';
 import { getUser } from '../actions/UserActions'
@@ -34,10 +35,8 @@ class App extends React.Component{
           <Services />
           <Pos />
           <PriceGalery />
-          <div className="row">
-            {this.props.children}
-          </div>
         </main>
+        <Footer />
       </div>
     );
   }
