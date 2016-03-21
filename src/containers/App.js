@@ -10,6 +10,8 @@ import { default as Services } from "../components/Services";
 import { default as Pos } from "../components/Pos";
 import { default as PriceGalery } from "../components/PriceGalery";
 import { default as Footer } from "../components/Footer";
+import { default as NavBarFooter } from "../components/NavBarFooter";
+import { default as Copyright } from "../components/Copyright";
 import Firebase from 'firebase';
 import { FireRef } from '../constants/Commons';
 import { getUser } from '../actions/UserActions'
@@ -37,6 +39,8 @@ class App extends React.Component{
           <PriceGalery />
         </main>
         <Footer />
+        <NavBarFooter />
+        <Copyright />
       </div>
     );
   }

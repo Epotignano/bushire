@@ -6,20 +6,21 @@ import { Link } from "react-router";
 
 //var uid = localStorage.getItem(UidRef);
 
-class Banner extends React.Component {
+class Copyright extends React.Component {
   render() {
-    //const instance = new Firebase(FireRef);
     const { router } = this.context;
 
     return (
-      <div className="ui fluid image">
-        <img src="../assets/image.png" style={{'height':'500px'}} />
-      </div>
+        <div className="ui centered grid">
+          <footer>
+            <small>Copyright</small>
+          </footer>
+        </div>
     );
   }
 }
 
-Banner.contextTypes = {
+Copyright.contextTypes = {
   router: PropTypes.any
 };
 
@@ -31,4 +32,4 @@ var mapStateProps = function(state) {
   };
 };
 
-export default connect(mapStateProps)(Banner);
+export default connect(mapStateProps)(Copyright);
