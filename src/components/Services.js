@@ -12,30 +12,33 @@ class Services extends React.Component {
     const { router } = this.context;
 
     return (
-      <div className="ui four column grid centered">
-        <div className="column">
-          <img className="ui small circular image right" src="../assets/image.png" />
+      <div className="ui grid">
+        <div className="four wide column">
+          <img className="ui tiny circular right floated image" src="../assets/image.png" />
         </div>
-        <div className="column">
+        <div className="twelve wide mobile four wide computer column">
+          <div className="ui header red">header 1</div>
           <p>Lorem ipsum Pariatur aliqua ea irure culpa fugiat ad in mollit proident velit consectetur do</p>
         </div>
-        <div className="column">
-          <img className="ui small circular image" src="../assets/image.png" />
+        <div className="four wide mobile two wide computer column">
+          <img className="ui tiny circular right floated image" src="../assets/image.png" />
         </div>
-        <div className="column">
+        <div className="twelve wide mobile four wide computer column">
+          <div className="ui header red">header 2</div>
           <p>Lorem ipsum Pariatur aliqua ea irure culpa fugiat ad in mollit proident velit consectetur do</p>
         </div>
-
-        <div className="column">
-          <img className="ui small circular image" src="../assets/image.png" />
+        <div className="four wide column">
+          <img className="ui tiny circular right floated image" src="../assets/image.png" />
         </div>
-        <div className="column">
+        <div className="twelve wide mobile four wide computer column">
+          <div className="ui header red">header 3</div>
           <p>Lorem ipsum Pariatur aliqua ea irure culpa fugiat ad in mollit proident velit consectetur do</p>
         </div>
-        <div className="column">
-          <img className="ui small circular image" src="../assets/image.png" />
+        <div className="four wide mobile two wide computer column">
+          <img className="ui tiny circular right floated image" src="../assets/image.png" />
         </div>
-        <div className="column">
+        <div className="twelve wide mobile four wide computer column">
+          <div className="ui header red">header 4</div>
           <p>Lorem ipsum Pariatur aliqua ea irure culpa fugiat ad in mollit proident velit consectetur do</p>
         </div>
       </div>
