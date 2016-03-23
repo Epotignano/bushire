@@ -14,16 +14,33 @@ import { FireRef, UidRef } from '../constants/Commons';
 var uid = localStorage.getItem(UidRef);
 
 class NavBar extends React.Component {
+  componentDidMount() {
+    $('.main.menu').visibility({
+        type: 'fixed'
+      });
+      $('.overlay').visibility({
+        type: 'fixed',
+        offset: 100
+      });
+
+      // show dropdown on hover
+      $('.main.menu  .ui.dropdown').dropdown({
+        on: 'hover'
+      });
+  }  
   render() {
     const instance = new Firebase(FireRef);
     const { router } = this.context;
 
     return (
-      <nav className="ui menu navbar grid">
-              <Link className="item" to="/">Airport Transfers</Link>
-              <Link className="item" to="/">Charters & Hill</Link>
-              <Link className="item" to="/">Fleet</Link>
-              <Link className="item" to="/">Optional services</Link>
+
+      <nav className="ui borderless main menu">
+        <div className="ui text container">      
+          <a href="#" className="item">Airport Transfers</a>
+          <a href="#" className="item">Charters & Hill</a>         
+          <a href="#" className="item">Fleet</a>  
+          <a href="#" className="item">Optional services & Hill</a>  
+        </div>
       </nav>
     )
   }

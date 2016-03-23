@@ -45,6 +45,21 @@ class Header extends React.Component {
     const { router } = this.context;
 
     return (
+
+      <header className="ui inverted navbar page ">
+       <div className="row pink">
+          <div className="ui inverted menu navbar grid pink">
+            <div className="ui right menu">
+                  { generateRightMenu(instance.getAuth(), router) }
+            </div>
+            <div className="ui right aligned category search">
+              <input className="prompt" type="text" placeholder="Search..." />
+              <div className="results"></div>
+            </div>
+          </div>    
+        </div>         
+      </header>
+  /*
       <header className="ui inverted fixed navbar page grid">
         <div className="row">
           <div className="ui inverted fixed menu navbar grid red">
@@ -57,7 +72,7 @@ class Header extends React.Component {
             </div>
           </div>
         </div>
-      </header>
+      </header>*/
     )
   }
 }
