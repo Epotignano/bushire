@@ -12,16 +12,24 @@ class PriceGalery extends React.Component {
     const { router } = this.context;
 
     return (
-      <div className="ui column grid centered">
-          <div className="ui medium images">
-            <img src="../assets/image.png" />
-            <img src="../assets/image.png" />
-            <img src="../assets/image.png" />
+      <div className="ui equal width three column center aligned doubling grid container">
+          <div className="column">
+            <img className="ui medium image" src="../assets/image.png" />
           </div>
-          <div className="ui medium images">
-            <img src="../assets/image.png" />
-            <img src="../assets/image.png" />
-            <img src="../assets/image.png" />
+          <div className="column">
+            <img className="ui medium image" src="../assets/image.png" />
+          </div>
+          <div className="column">
+            <img className="ui medium image" src="../assets/image.png" />
+          </div>
+          <div className="column">
+            <img className="ui medium image" src="../assets/image.png" />
+          </div>
+          <div className="column">
+            <img className="ui medium image" src="../assets/image.png" />
+          </div>
+          <div className="column">
+            <img className="ui medium image" src="../assets/image.png" />
           </div>
       </div>
     );

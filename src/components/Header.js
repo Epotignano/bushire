@@ -45,20 +45,38 @@ class Header extends React.Component {
     const { router } = this.context;
 
     return (
+      <header>   
+        <div className="ui two column centered stackable grid inverted menu navbar pink">
+          <div className="column">
+            hghfhhf
+          </div>
+          <div className="hsearch ui column centered aligned category search "> 
+            <div className="ui icon input">
+                <input className="prompt" type="text" placeholder="Search..."/>
+                <i className="search icon"></i>
+            </div>
+            <div className="results"></div>    
+          </div>
+        </div>
+      </header> 
 
-      <header className="ui inverted navbar page ">
-       <div className="row pink">
-          <div className="ui inverted menu navbar grid pink">
-            <div className="ui right menu">
+
+     /* <header className="ui navbar page ">     
+       
+          <div className="ui grid inverted menu navbar pink">
+
+            <div className="ui menu">
                   { generateRightMenu(instance.getAuth(), router) }
             </div>
-            <div className="ui right aligned category search">
-              <input className="prompt" type="text" placeholder="Search..." />
-              <div className="results"></div>
-            </div>
-          </div>    
-        </div>         
-      </header>
+            <div className='eight wide column'>
+              <div className=" ui category search">
+                <input className="prompt" type="text" placeholder="Search..." />
+                <div className="results"></div>
+              </div>
+              </div>
+              
+        </div>        
+      </header> */
   /*
       <header className="ui inverted fixed navbar page grid">
         <div className="row">

@@ -11,7 +11,7 @@ class Footer extends React.Component {
     const { router } = this.context;
 
     return (
-      <div className="ui center aligned four column grid">
+      <div className="ui center aligned four column doubling grid">
         <div className="row gray">
           <div className="two wide column">
             <h3 className="ui red header">Get to Know US</h3>

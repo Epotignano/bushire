@@ -11,15 +11,26 @@ class NavBarFooter extends React.Component {
     const { router } = this.context;
 
     return (
-        <div className="ui inverted centered menu grid red">
-          <div className="menu">
-            <Link className="item" to="/">Link 1</Link>
-            <Link className="item" to="/">Link 2</Link>
-            <Link className="item" to="/">Link 3</Link>
-            <Link className="item" to="/">Link 4</Link>
-            <Link className="item" to="/">Link 5</Link>
-            <Link className="item" to="/">Link 6</Link>
-            <Link className="item" to="/">Link 7</Link>
+        <div className="ui center aligned grid">
+          <div className="red row">
+          <div className="four wide mobile one wide computer column">
+              <Link className="item" to="/">Home</Link>
+          </div>
+          <div className="eight wide mobile two wide computer column">
+              <Link className="item" to="/">Term and Conditions</Link>
+          </div>
+          <div className="four wide mobile one wide computer column">
+              <Link className="item" to="/">Privacy Policy</Link>
+          </div>
+          <div className="three wide mobile one wide computer  column">
+              <Link className="item" to="/">Footermenu</Link>
+          </div>
+          <div className="three wide mobile one wide computer  column">
+              <Link className="item" to="/">Footer menu</Link>
+          </div>
+          <div className="three wide mobile one wide computer  column">
+              <Link className="item" to="/">Footmenu</Link>
+          </div>
           </div>
         </div>
     );
