@@ -4,6 +4,7 @@
 import { FireRef, UidRef } from '../constants/Commons';
 import Firebase from 'firebase';
 import { getUser } from '../actions/UserActions';
+import { getAbout } from '../actions/AboutActions';
 
 import {
     LOGIN_ATTEMP,
@@ -12,7 +13,8 @@ import {
     REGISTER_ATTEMP,
     LOGIN_ATTEMP_FACEBOOK,
    REGISTER_SUCCESS,
-   REGISTER_FAILURE
+   REGISTER_FAILURE,
+   LOGOUT
 } from "../constants/ActionTypes";
 
 function LoginAttempt (credentials) {
@@ -87,6 +89,7 @@ export function loginUser(credentials) {
         localStorage.setItem(UidRef, authData.uid);
         dispatch(loginSuccess(authData));
         getUser();
+        dispatch(getAbout());
       }
     });
   }
@@ -114,4 +117,13 @@ export function registerUser(userData) {
       }
     });
   }
+}
+
+export function logoutUser() {
+  return dispatch => {
+      var _fireRef = new Firebase(FireRef);
+      dispatch({type:LOGOUT}); // don't really need to do this, but nice to get immediate feedback
+      localStorage.removeItem(UidRef);
+      _fireRef.unauth();
+    }
 }

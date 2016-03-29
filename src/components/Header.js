@@ -10,18 +10,21 @@ import { Link } from "react-router";
 import UserAvatar  from './userAvatar';
 import Firebase from 'firebase';
 import { FireRef, UidRef } from '../constants/Commons';
+import { logoutUser } from "../actions/AuthActions";
 
 var uid = localStorage.getItem(UidRef);
-function generateRightMenu(isAuthenticated, router) {
+function generateRightMenu(isAuthenticated, router, store) {
   if(isAuthenticated) {
     return(
     <a className="ui dropdown item"><UserAvatar className="item"/>
       <i className="dropdown icon"></i>
       <div className="menu">
-        <div className="item">マイページ</div>
         <div className="item" onClick={ router.push('app/' + uid + '/audition/creation')}>New audition</div>
         <div className="ui divider"></div>
-        <div className="item">ログアウト</div>
+        <div className="item" onClick={e => {
+          e.preventDefault();
+          store.dispatch(logoutUser());
+        }}>Logout</div>
       </div>
     </a>
     )
@@ -42,13 +45,12 @@ class Header extends React.Component {
   }
   render() {
     const instance = new Firebase(FireRef);
-    const { router } = this.context;
-
+    const { router, store } = this.context;
     return (
       <header>   
         <div className="ui two column centered stackable grid inverted menu navbar pink">
           <div className="column">
-            hghfhhf
+            { generateRightMenu(instance.getAuth(), router, store) }
           </div>
           <div className="hsearch ui column centered aligned category search "> 
             <div className="ui icon input">
@@ -59,44 +61,13 @@ class Header extends React.Component {
           </div>
         </div>
       </header> 
-
-
-     /* <header className="ui navbar page ">     
-       
-          <div className="ui grid inverted menu navbar pink">
-
-            <div className="ui menu">
-                  { generateRightMenu(instance.getAuth(), router) }
-            </div>
-            <div className='eight wide column'>
-              <div className=" ui category search">
-                <input className="prompt" type="text" placeholder="Search..." />
-                <div className="results"></div>
-              </div>
-              </div>
-              
-        </div>        
-      </header> */
-  /*
-      <header className="ui inverted fixed navbar page grid">
-        <div className="row">
-          <div className="ui inverted fixed menu navbar grid red">
-            <div className="right menu">
-              { generateRightMenu(instance.getAuth(), router) }
-            </div>
-            <div className="right search">
-                <input class="prompt" type="text" placeholder="Search..." />
-              <div className="results"></div>
-            </div>
-          </div>
-        </div>
-      </header>*/
     )
   }
 }
 
 Header.contextTypes = {
-  router: PropTypes.any
+  router: PropTypes.any,
+  store: React.PropTypes.any
 };
 
 var mapStateProps = function(state) {
@@ -107,4 +78,11 @@ var mapStateProps = function(state) {
   }
 };
 
-export default connect(mapStateProps)(Header);
+var mapDispatchToProps = function(dispatch){
+  console.log(dispatch);
+  return {
+    logout: function(){ dispatch(logoutUser()); }
+  }
+};
+
+export default connect(mapStateProps, mapDispatchToProps)(Header);

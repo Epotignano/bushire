@@ -8,7 +8,8 @@ import {
     LOGIN_SUCCESS,
     REGISTER_ATTEMP,
     REGISTER_SUCCESS,
-    REGISTER_FAILURE
+    REGISTER_FAILURE,
+    LOGOUT
 } from "../constants/ActionTypes";
 
 function auth(state = {
@@ -48,6 +49,11 @@ function auth(state = {
         return Object.assign({}, state, {
             isFetching: false,
             registerSuccess: true
+        });
+    case LOGOUT:
+        return Object.assign({}, state, {
+            isFetching: false,
+            isAuthenticated: false
         });
     default:
       return state

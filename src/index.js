@@ -12,6 +12,8 @@ import ProfileFlowContainer from './containers/profileFlow/Container';
 import Forbidden from './containers/Forbidden';
 import Auth from './containers/Auth';
 import Register from './containers/Register';
+import Vehicle from './containers/admin/Vehicle';
+import About from './containers/admin/About';
 import configureStore from './store/configureStore';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -35,6 +37,8 @@ render(
       </Route>
       <Route name="access" path="/access" component={Auth}>
         <Route name="login" path="/access/login" component={Login}/>
+        <Route name="about" path="/access/about" component={About}/>
+        <Route name="vehicle" path="/access/vehicle" component={Vehicle}/>
         <Route name="register" path="/access/register" component={Register}/>
       </Route>
     </Router>

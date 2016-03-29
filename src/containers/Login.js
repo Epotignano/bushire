@@ -7,7 +7,7 @@ import React, {Component, PropTypes } from 'react'
 import { render } from 'react-dom';
 import { connect } from 'react-redux';
 import { Router } from 'react-router'
-import { loginUser, FacebookLogin } from "../actions/AuthActions"
+import { loginUser } from "../actions/AuthActions"
 import Formsy from 'formsy-react';
 import { FormsyText }  from 'formsy-material-ui';
 
@@ -38,11 +38,8 @@ class Login extends Component {
 
 
   render(){
-    const {dispatch, errorMessage, isAuthenticated, params} = this.props;
-    const { userType } = params;
+    const {dispatch, errorMessage, isAuthenticated} = this.props;
     const {store, router, route}  = this.context;
-
-    console.log(params);
 
     return(
       <div className="ui one column center aligned grid">
@@ -50,12 +47,12 @@ class Login extends Component {
         e.preventDefault();
         const username = this.refs.username.value.trim();
         const password = this.refs.password.value.trim();
-        const credentials = {password, username, userType };
+        const credentials = {password, username};
         dispatch(loginUser(credentials));
         store.subscribe(function(){
           var _state = store.getState();
           if(_state.auth.isAuthenticated) {
-            router.push('/app');
+            router.push('/access/about');
           }
         })
       }}
@@ -88,20 +85,6 @@ class Login extends Component {
 
         <div className="ui column">
           <button className="ui button" onClick={this.showModal}> Forgot password? </button>
-        </div>
-
-        <div className="column three">
-          <button className="ui facebook button" onClick={() => {}}>
-            Facebook
-          </button>
-          <button className="ui twitter button">
-            <i className="twitter icon"></i>
-            Twitter
-          </button>
-          <button className="ui google plus button">
-            <i className="google plus icon"></i>
-            Google Plus
-          </button>
         </div>
 
         <div className="ui small modal">
@@ -139,6 +122,7 @@ class Login extends Component {
             </div>
           </div>
         </div>
+        
       </div>
     )
   }
