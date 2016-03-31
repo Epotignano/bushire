@@ -14,7 +14,10 @@ import {
     LOGIN_ATTEMP_FACEBOOK,
    REGISTER_SUCCESS,
    REGISTER_FAILURE,
-   LOGOUT
+   LOGOUT,
+   RESET_PASSWORD_ATTEMP,
+   RESET_PASSWORD_SUCCESS,
+   RESET_PASSWORD_FAILURE
 } from "../constants/ActionTypes";
 
 function LoginAttempt (credentials) {
@@ -79,12 +82,12 @@ function RegisterSuccess(user) {
 
 export function loginUser(credentials) {
   return dispatch => {
-    var _fireRef = new Firebase(FireRef);
+    let _fireRef = new Firebase(FireRef);
     dispatch(LoginAttempt(credentials));
     _fireRef.authWithPassword({email: credentials.username, password: credentials.password }, (err, authData)  => {
       if(err){
         dispatch(loginError(err));
-        return Promise.reject(err)
+        //return Promise.reject(err)
       } else{
         localStorage.setItem(UidRef, authData.uid);
         dispatch(loginSuccess(authData));
@@ -108,7 +111,7 @@ export function registerUser(userData) {
     _optins.set(_userData, (error)=> {
       if(error) {
         dispatch(RegisterFailure(error));
-        return Promise.reject(_userData)
+        //return Promise.reject(_userData)
       }
       else {
         // Dispatch the success action
@@ -121,9 +124,31 @@ export function registerUser(userData) {
 
 export function logoutUser() {
   return dispatch => {
-      var _fireRef = new Firebase(FireRef);
+      let _fireRef = new Firebase(FireRef);
       dispatch({type:LOGOUT}); // don't really need to do this, but nice to get immediate feedback
       localStorage.removeItem(UidRef);
       _fireRef.unauth();
+    }
+}
+
+export function resetPassword(email) {
+  return dispatch => {
+      let _fireRef = new Firebase(FireRef);
+      console.log("en reset password " + email);
+      dispatch({type:RESET_PASSWORD_ATTEMP});
+      _fireRef.resetPassword({email: email}, function(error) {
+      if (error) {
+        switch (error.code) {
+          case "INVALID_USER":
+            dispatch({type:RESET_PASSWORD_FAILURE, error: "The specified user account does not exist."});
+            break;
+          default:
+            dispatch({type:RESET_PASSWORD_FAILURE, error: "Error resetting password:" + error});
+        }
+      } else {
+        console.log("Password reset email sent successfully!");
+        dispatch({type:RESET_PASSWORD_SUCCESS, message: 'Send email correctly'});
+      }
+    });
     }
 }

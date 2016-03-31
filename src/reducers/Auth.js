@@ -9,12 +9,17 @@ import {
     REGISTER_ATTEMP,
     REGISTER_SUCCESS,
     REGISTER_FAILURE,
-    LOGOUT
+    LOGOUT,
+    RESET_PASSWORD_ATTEMP,
+    RESET_PASSWORD_SUCCESS,
+    RESET_PASSWORD_FAILURE
 } from "../constants/ActionTypes";
 
 function auth(state = {
   isFetching: false,
-  isAuthenticated: localStorage.getItem('mcw_uid') ? true : false
+  isAuthenticated: localStorage.getItem('mcw_uid') ? true : false,
+  isAttempPasswordReset:false,
+  textResetPassword:''
 }, action) {
   switch (action.type) {
     case LOGIN_ATTEMP:
@@ -33,7 +38,8 @@ function auth(state = {
       return Object.assign({}, state, {
         isFetching: false,
         isAuthenticated: false,
-        errorMessage: action.code
+        errorMessage: LOGIN_FAILURE,
+        errorFireBase: action.code 
       });
     case REGISTER_ATTEMP:
         return Object.assign({}, state, {
@@ -54,6 +60,23 @@ function auth(state = {
         return Object.assign({}, state, {
             isFetching: false,
             isAuthenticated: false
+        });
+    case RESET_PASSWORD_ATTEMP:
+        return Object.assign({}, state, {
+            isAttempPasswordReset: true
+        });
+    case RESET_PASSWORD_SUCCESS:
+        return Object.assign({}, state, {
+            isPasswordReset: true,
+            message: action.message,
+            textResetPassword:''
+        });
+    case RESET_PASSWORD_FAILURE:
+        return Object.assign({}, state, {
+            isPasswordReset: false,
+            errorMessage: LOGIN_FAILURE,
+            errorFireBase: action.error,
+            textResetPassword:''
         });
     default:
       return state

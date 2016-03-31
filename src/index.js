@@ -14,6 +14,7 @@ import Auth from './containers/Auth';
 import Register from './containers/Register';
 import Vehicle from './containers/admin/Vehicle';
 import About from './containers/admin/About';
+import ListServices from './containers/admin/ListServices';
 import configureStore from './store/configureStore';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -22,6 +23,8 @@ import '../node_modules/jquery/dist/jquery';
 
 require('../semantic/dist/semantic');
 require('../semantic/dist/semantic.min.css');
+
+import { startListeningToServices } from "./actions/ServiceActions";
 
 const store = configureStore();
 injectTapEventPlugin();
@@ -38,9 +41,14 @@ render(
       <Route name="access" path="/access" component={Auth}>
         <Route name="login" path="/access/login" component={Login}/>
         <Route name="about" path="/access/about" component={About}/>
+		<Route name="services" path="/access/services" component={ListServices}/>
         <Route name="vehicle" path="/access/vehicle" component={Vehicle}/>
         <Route name="register" path="/access/register" component={Register}/>
       </Route>
     </Router>
   </Provider>, document.getElementById('app')
 );
+
+setTimeout(()=>{
+  store.dispatch(startListeningToServices());
+});
