@@ -13,20 +13,20 @@ import Firebase from 'firebase';
 class About extends Component {
    render() {
     const { dispatch, output, options, message, isAuthenticated } = this.props;
-    const {store, router, route}  = this.context;
+    const {store, router, route} = this.context;
     console.log("esta logueado:" + isAuthenticated);
     if(!isAuthenticated){
-		router.push('/access/login');
+      router.push('/access/login');
     }
     return(
       <div className="ui one column centered grid">
-		<form  onSubmit={e => {
-			e.preventDefault();
-			const about = this.refs.pm.getContent('html');
-			//const content = {about} ;
-			dispatch(saveContent(about));
-			}
-		}
+        <form  onSubmit={e => {
+          e.preventDefault();
+          const about = this.refs.pm.getContent('html');
+          //const content = {about} ;
+          dispatch(saveContent(about));
+          }
+        }
         className="column six wide form-holder">
           <h2 className="header form-head">About US{this.props.isAuthenticated}</h2>
           <div className="ui form">
@@ -41,7 +41,6 @@ class About extends Component {
         </form>
       </div>
        )
-
    }
 }
 
@@ -51,14 +50,14 @@ function mapStateProps(state) {
     const { isAuthenticated } = auth;
 
     return {
-        output, options, message, isAuthenticated
+      output, options, message, isAuthenticated
     }
 }
 
 About.contextTypes = {
-	router: React.PropTypes.any,
-	store: React.PropTypes.any,
-	route: React.PropTypes.any
+  router: React.PropTypes.any,
+  store: React.PropTypes.any,
+  route: React.PropTypes.any
 };
 
 About = connect(mapStateProps)(About);

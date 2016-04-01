@@ -12,7 +12,7 @@ import ProfileFlowContainer from './containers/profileFlow/Container';
 import Forbidden from './containers/Forbidden';
 import Auth from './containers/Auth';
 import Register from './containers/Register';
-import Vehicle from './containers/admin/Vehicle';
+import ListVehicle from './containers/admin/ListVehicle';
 import About from './containers/admin/About';
 import ListServices from './containers/admin/ListServices';
 import configureStore from './store/configureStore';
@@ -25,6 +25,8 @@ require('../semantic/dist/semantic');
 require('../semantic/dist/semantic.min.css');
 
 import { startListeningToServices } from "./actions/ServiceActions";
+import { startListeningToVehicles } from "./actions/VehicleActions";
+
 
 const store = configureStore();
 injectTapEventPlugin();
@@ -33,16 +35,16 @@ render(
   <Provider store={store}>
     <Router history={hashHistory}>
       <Route name="forbidden" component={Forbidden}/>
-       <Route name="app" path="/app" component={App}>
-         <IndexRoute component={Dashboard} name="dashboard"/>
-         <Route name="userFlow" path="/app/profile" component={ProfileFlowContainer}>
-         </Route>
+        <Route name="app" path="/app" component={App}>
+          <IndexRoute component={Dashboard} name="dashboard"/>
+          <Route name="userFlow" path="/app/profile" component={ProfileFlowContainer}>
+        </Route>
       </Route>
       <Route name="access" path="/access" component={Auth}>
         <Route name="login" path="/access/login" component={Login}/>
         <Route name="about" path="/access/about" component={About}/>
-		<Route name="services" path="/access/services" component={ListServices}/>
-        <Route name="vehicle" path="/access/vehicle" component={Vehicle}/>
+        <Route name="services" path="/access/services" component={ListServices}/>
+        <Route name="vehicle" path="/access/vehicles" component={ListVehicle}/>
         <Route name="register" path="/access/register" component={Register}/>
       </Route>
     </Router>
@@ -51,4 +53,5 @@ render(
 
 setTimeout(()=>{
   store.dispatch(startListeningToServices());
+  store.dispatch(startListeningToVehicles());
 });

@@ -4,7 +4,7 @@ import {
 } from "../constants/ActionTypes";
 
 function about(state = {
-  output:"hola",
+  output:"",
   options: {
     menuBar: true, 
     tooltipMenu: true, 
@@ -23,7 +23,7 @@ function about(state = {
         message:action.message
       });
     default:
-      return state
+      return state;
   }
 }
 

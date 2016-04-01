@@ -11,25 +11,29 @@ import _ from 'lodash';
 class ListServices extends Component {
 
   render(){
-      var p = this.props, rows = _.map(p.service.data,function(service,sid){
-      var serviceestate = p.service.states[sid];
-      return (<Service
-        key={sid}
-        service={service}
-        sid={sid}
-        state={serviceestate}
-        edit={p.startEdit.bind(this,sid)}
-        cancel={p.cancelEdit.bind(this,sid)}
-        submit={p.submitEdit.bind(this,sid)}
-        delete={p.deleteService.bind(this,sid)}
-        mayedit={p.auth.uid === service.uid}/>);
-    }).reverse();
+    let p = this.props;
+    const {store, router, route}  = this.context;
+    if(!p.auth.isAuthenticated){
+      router.push('/access/login');
+    }
+    let rows = _.map(p.service.data,function(service,sid){
+    let serviceestate = p.service.states[sid];
+    return (<Service
+      key={sid}
+      service={service}
+      sid={sid}
+      state={serviceestate}
+      edit={p.startEdit.bind(this,sid)}
+      cancel={p.cancelEdit.bind(this,sid)}
+      submit={p.submitEdit.bind(this,sid)}
+      delete={p.deleteService.bind(this,sid)}
+      mayedit={p.auth.uid === service.uid}/>);
+      }).reverse();
 
     return (
       <div className="ui grid" style={{"paddingTop":"20px"}} >
        <div className="ui row"><div className="column"></div><div className=" seven wide column"><h2 clasName="header">SERVICES　サービス</h2></div></div>
         <div className="ui right floated seven wide column form">
-        {p.auth.uid ? <p>Log in to add a new service of your own!</p>:           
               <div className="ui grey segment"> 
               <h4 className="ui header grey">Create New</h4>
                 <form onSubmit={e => {
@@ -43,19 +47,17 @@ class ListServices extends Component {
                       this.refs.newdescription.value = '';
                     }}
                 }>
-                  <div className="ten field"><input ref="newtitle" placeholder="write title"/></div>        
+                  <div className="ten field"><input ref="newtitle" placeholder="write title"/></div>
                   <div className="ten field"><textarea ref="newdescription" rows="5" placeholder="write description"/></div>
                   <div className="ten field"><button  className="tiny ui button"  type="submit" disabled={p.service.submittingnew}>{p.service.submittingnew ? "Publishing..." : "Publish"}</button></div>
                 </form>
-              </div>                          
-                 
-        }
+              </div>
         </div>
         
         <div className="ui left floated seven wide column" >
           <div className="ui grey segment"> 
           <h4 className="ui header grey">Right Now</h4>
-            {p.service.hasreceiveddata ? rows : "Loading services..."}        
+            {p.service.hasreceiveddata ? rows : "Loading services..."}
           </div>
         </div>
         
@@ -73,7 +75,7 @@ function mapStateProps(state) {
 
     return {
         service, auth
-    }
+    };
 }
 
 function mapDispatchToProps(dispatch){
@@ -86,10 +88,11 @@ function mapDispatchToProps(dispatch){
   }
 }
 
-ListServices.contextType = {
-    store: PropTypes.any,
-    router: PropTypes.any
-}
+ListServices.contextTypes = {
+  router: React.PropTypes.any,
+  store: React.PropTypes.any,
+  route: React.PropTypes.any
+};
 
 ListServices = connect(mapStateProps, mapDispatchToProps)(ListServices);
 
