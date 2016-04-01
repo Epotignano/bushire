@@ -50,7 +50,7 @@ class Header extends React.Component {
       <header>   
         <div className="ui two column centered stackable grid inverted menu navbar pink">
           <div className="column">
-            { generateRightMenu(instance.getAuth(), router, store) }
+            title of webpage
           </div>
           <div className="hsearch ui column centered aligned category search "> 
             <div className="ui icon input">
