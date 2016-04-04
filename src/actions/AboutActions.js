@@ -8,7 +8,7 @@ export function saveContent(content) {
     let _content = new Firebase(FireRef +  _modifiedContent );
 
     let _contentData = {
-      text: content      
+      text: content
     };
 
     _content.set(_contentData, (error)=> {
@@ -16,7 +16,7 @@ export function saveContent(content) {
         return Promise.reject(_contentData);
       }
       else {
-        // Dispatch the success action        
+        // Dispatch the success action
         dispatch(RegisterSuccess("Success", content));
       }
     });
@@ -35,7 +35,7 @@ export function getAbout() {
   return dispatch => {
     let aboutRef = new Firebase(FireRef + "about/").child("text");
     aboutRef.on("value",function(snapshot){
-        console.log("html:" + snapshot);
+        console.log("AboutUS:" + snapshot);
         dispatch({ type: ABOUT_READ, output: snapshot.val() });
       });
   };

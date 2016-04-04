@@ -6,6 +6,8 @@ import { Provider } from 'react-redux';
 import { Router, Route, browserHistory, hashHistory, IndexRoute } from 'react-router'
 
 import App from './containers/App';
+import AboutUs from './containers/AboutUs';
+import Contact from './containers/Contact';
 import Dashboard from './containers/Dashboard';
 import Login from './containers/Login';
 import ProfileFlowContainer from './containers/profileFlow/Container';
@@ -24,6 +26,7 @@ import '../node_modules/jquery/dist/jquery';
 require('../semantic/dist/semantic');
 require('../semantic/dist/semantic.min.css');
 
+import { getAbout } from "./actions/AboutActions";
 import { startListeningToServices } from "./actions/ServiceActions";
 import { startListeningToVehicles } from "./actions/VehicleActions";
 
@@ -40,6 +43,8 @@ render(
           <Route name="userFlow" path="/app/profile" component={ProfileFlowContainer}>
         </Route>
       </Route>
+      <Route name="aboutUs" path="/about" component={AboutUs} />
+      <Route name="contact" path="/contact" component={Contact} />
       <Route name="access" path="/access" component={Auth}>
         <Route name="login" path="/access/login" component={Login}/>
         <Route name="about" path="/access/about" component={About}/>
@@ -52,6 +57,7 @@ render(
 );
 
 setTimeout(()=>{
+  store.dispatch(getAbout());
   store.dispatch(startListeningToServices());
   store.dispatch(startListeningToVehicles());
 });

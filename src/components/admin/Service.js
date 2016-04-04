@@ -58,12 +58,9 @@ class Service extends Component {
 		return (
 			<div className="ui vertical segment">
 				<div className="ui centered grid">
-				<div className="row"><div className="column"><p>{q.title}</p></div></div>	
+				<div className="row"><div className="column"><p>{q.title}</p></div></div>
 				<div className="row"><div className="column"><p>{q.description}</p></div></div>
-				<div className="row"><div className=" column right aligned "><p>{button}</p></div></div>	
-					
-					
-									
+				<div className="row"><div className=" column right aligned "><p>{button}</p></div></div>
 			</div>
 			</div>
 		);

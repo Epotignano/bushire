@@ -35,11 +35,13 @@ class NavBar extends React.Component {
     return (
 
       <nav className="ui borderless main menu">
-        <div className="ui text container">      
+        <div className="ui text container">
           <a href="#" className="item">Airport Transfers</a>
-          <a href="#" className="item">Charters & Hill</a>         
-          <a href="#" className="item">Fleet</a>  
-          <a href="#" className="item">Optional services & Hill</a>  
+          <a href="#" className="item">Charters & Hill</a>
+          <a href="#" className="item">Fleet</a>
+          <a href="#" className="item">Optional services & Hill</a>
+          <Link to="/about" className="item">About us</Link>
+          <a href="#" className="item">FAQ</a>
         </div>
       </nav>
     )
@@ -53,7 +55,7 @@ NavBar.contextTypes = {
 var mapStateProps = function(state) {
   const { auth, user } = state;
 
-  return  {
+  return {
     auth,user
   }
 };

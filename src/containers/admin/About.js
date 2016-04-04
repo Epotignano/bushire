@@ -28,7 +28,7 @@ class About extends Component {
           }
         }
         className="column six wide form-holder">
-          <h2 className="header form-head">About US{this.props.isAuthenticated}</h2>
+          <h1 className="header form-head">About US</h1>
           <div className="ui form">
             <div className="field">
               <ProseMirror value={output} options={options} ref="pm"/>
