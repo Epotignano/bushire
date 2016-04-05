@@ -7,6 +7,7 @@ import { default as Service } from "../../components/admin/Service";
 import { submitNewService,startServiceEdit,cancelServiceEdit,submitServiceEdit,deleteService } from "../../actions/ServiceActions"
 import { FireRef } from '../../constants/Commons';
 import _ from 'lodash';
+import { default as Menu } from "../../components/admin/MenuAdmin";
 
 class ListServices extends Component {
 
@@ -31,6 +32,8 @@ class ListServices extends Component {
       }).reverse();
 
     return (
+    <div>
+      <Menu />
       <div className="ui grid" style={{"paddingTop":"20px"}} >
        <div className="ui row"><div className="column"></div><div className=" seven wide column"><h2 clasName="header">SERVICES　サービス</h2></div></div>
         <div className="ui right floated seven wide column form">
@@ -62,7 +65,7 @@ class ListServices extends Component {
         </div>
         
       </div>
-      
+    </div>
     );
   }
 

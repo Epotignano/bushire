@@ -9,6 +9,7 @@ import 'prosemirror/dist/menu/menubar';
 import 'prosemirror/dist/menu/tooltipmenu';
 import 'prosemirror/dist/menu/menu';
 import Firebase from 'firebase';
+import { default as Menu } from "../../components/admin/MenuAdmin";
 
 class About extends Component {
    render() {
@@ -19,26 +20,29 @@ class About extends Component {
       router.push('/access/login');
     }
     return(
-      <div className="ui one column centered grid">
-        <form  onSubmit={e => {
-          e.preventDefault();
-          const about = this.refs.pm.getContent('html');
-          //const content = {about} ;
-          dispatch(saveContent(about));
+      <div>
+        <Menu />
+        <div className="ui one column centered grid">
+          <form  onSubmit={e => {
+            e.preventDefault();
+            const about = this.refs.pm.getContent('html');
+            //const content = {about} ;
+            dispatch(saveContent(about));
+            }
           }
-        }
-        className="column six wide form-holder">
-          <h1 className="header form-head">About US</h1>
-          <div className="ui form">
-            <div className="field">
-              <ProseMirror value={output} options={options} ref="pm"/>
+          className="column six wide form-holder">
+            <h1 className="header form-head">About US</h1>
+            <div className="ui form">
+              <div className="field">
+                <ProseMirror value={output} options={options} ref="pm"/>
+              </div>
+              <div>{message}</div>
+              <div className="field">
+                <input type="submit" value="登録" className="ui button large fluid green"/>
+              </div>
             </div>
-            <div>{message}</div>
-            <div className="field">
-              <input type="submit" value="登録" className="ui button large fluid green"/>
-            </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
        )
    }
