@@ -55,8 +55,8 @@ class NavBar extends React.Component {
         <div className="mobile only row">
           <div className="navbar menu">
             <div className="right menu open">
-              <a href="#" className="menu item">
-                <i className="content icon"></i>
+              <a href="#" className="menu item responsive">
+                <i className="icon red big content"></i>
               </a>
             </div>
           </div>
