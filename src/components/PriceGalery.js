@@ -13,24 +13,22 @@ class PriceGalery extends React.Component {
 
     return (
       <div className="ui equal width three column center aligned doubling grid container">
-          <div className="column">
-            <img className="ui medium image" src="../assets/image.png" />
+          <div className="ui column">
+            <img className="ui medium image" src="../assets/bus.jpg" />
           </div>
-          <div className="column">
-            <img className="ui medium image" src="../assets/image.png" />
+          <div className="ui column">
+            <img className="ui medium image" src="../assets/mini_bus.png" />
           </div>
-          <div className="column">
-            <img className="ui medium image" src="../assets/image.png" />
+          <div className="ui column">
+            <img className="ui medium image" src="../assets/mini_van.png" />
           </div>
-          <div className="column">
-            <img className="ui medium image" src="../assets/image.png" />
+          <div className="ui column">
+            <img className="ui medium image" src="../assets/sedan.jpg" />
           </div>
-          <div className="column">
-            <img className="ui medium image" src="../assets/image.png" />
+          <div className="ui column">
+            <img className="ui medium image" src="../assets/size_van.jpg" />
           </div>
-          <div className="column">
-            <img className="ui medium image" src="../assets/image.png" />
-          </div>
+
       </div>
     );
   }

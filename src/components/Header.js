@@ -47,20 +47,13 @@ class Header extends React.Component {
     const instance = new Firebase(FireRef);
     const { router, store } = this.context;
     return (
-      <header>   
+      <header>
         <div className="ui two column centered stackable grid inverted menu navbar pink">
           <div className="column">
             Japan wide bus & Limo Charter services
           </div>
-          <div className="hsearch ui column centered aligned category search "> 
-            <div className="ui icon input">
-                <input className="prompt" type="text" placeholder="Search..."/>
-                <i className="search icon"></i>
-            </div>
-            <div className="results"></div>    
-          </div>
         </div>
-      </header> 
+      </header>
     )
   }
 }

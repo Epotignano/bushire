@@ -3,11 +3,8 @@
  */
 
 import React, {PropTypes} from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Dropdown, Text, Icon, Menu, Item } from "react-semantify";
 import { Link } from "react-router";
-import UserAvatar  from './userAvatar';
 import Firebase from 'firebase';
 import { FireRef, UidRef } from '../constants/Commons';
 
@@ -27,7 +24,7 @@ class NavBar extends React.Component {
       $('.main.menu  .ui.dropdown').dropdown({
         on: 'hover'
       });
-  }  
+  }
   render() {
     const instance = new Firebase(FireRef);
     const { router } = this.context;
@@ -35,7 +32,11 @@ class NavBar extends React.Component {
     return (
 
       <nav className="ui borderless main menu">
+        <div class="item">
+          <img  className="ui image small" src="../assets/logo.png"/>
+        </div>
         <div className="ui text container">
+
           <a href="#" className="item">Airport Transfers</a>
           <a href="#" className="item">Charters & Hill</a>
           <a href="#" className="item">Fleet</a>
