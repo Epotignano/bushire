@@ -17,7 +17,9 @@ import { FireRef } from '../constants/Commons';
 import { getUser } from '../actions/UserActions'
 
 class Contact extends React.Component{
-
+  componentDidMount(){
+    $('.ui.radio.checkbox').checkbox();
+  }
   render() {
     return (
       <div>
@@ -32,9 +34,9 @@ class Contact extends React.Component{
                 <div className="fields">
                   <div className="two wide field">
                     <select className="ui fluid dropdown">
-                      <option value="">Mr</option>
-                      <option value="">Mrs</option>
-                      <option value="">Ms</option>
+                      <option value="Mr">Mr</option>
+                      <option value="Mrs">Mrs</option>
+                      <option value="Ms">Ms</option>
                     </select>
                   </div>
                   <div className="fourteen wide field">
@@ -50,9 +52,7 @@ class Contact extends React.Component{
                 <div className="field">
                   <label>Country</label>
                   <select className="ui fluid dropdown">
-                    <option value="">Japan</option>
-                    <option value="">Korea</option>
-                    <option value="">China</option>
+                    <option value="Japan">Japan</option>
                   </select>
                 </div>
               </div>
@@ -76,20 +76,21 @@ class Contact extends React.Component{
                 <div className="field">
                   <label>Service Type</label>
                   <select className="ui fluid dropdown">
-                    <option value="">Airport</option>
-                    <option value="">Charter</option>
+                    <option value="Airport">Airport</option>
+                    <option value="Charter&hire">Charter & hire</option>
+                    <option value="other">その他御社サービス 選択</option>
                   </select>
                 </div>
                 <div className="field">
                   <label>Vehicle</label>
                   <select className="ui fluid dropdown">
-                    <option value="">Sedan</option>
-                    <option value="">Mini Van</option>
-                    <option value="">Large Van</option>
-                    <option value="">Mini Bus</option>
-                    <option value="">Small Bus</option>
-                    <option value="">Midi Bus</option>
-                    <option value="">Large Bus</option>
+                    <option value="Sedan">Sedan</option>
+                    <option value="Mini Van">Mini Van</option>
+                    <option value="Large Van">Large Van</option>
+                    <option value="Mini Bus">Mini Bus</option>
+                    <option value="Small Bus">Small Bus</option>
+                    <option value="Midi Bus">Midi Bus</option>
+                    <option value="Large Bus">Large Bus</option>
                   </select>
                 </div>
               </div>
@@ -133,22 +134,22 @@ class Contact extends React.Component{
                 <textarea></textarea>
               </div>
               <div className="grouped fields">
-                <label for="fruit">Interpreting Service</label>
+                <label htmlFor="interpret">Interpreting Service</label>
                 <div className="field">
                   <div className="ui radio checkbox">
-                    <input type="radio" name="interpret" checked="" tabindex="0" className="hidden" />
+                    <input type="radio" name="interpret" checked="" tabIndex="0" className="hidden" />
                     <label>Need a Professional Guide</label>
                   </div>
                 </div>
                 <div className="field">
                   <div className="ui radio checkbox">
-                    <input type="radio" name="interpret" tabindex="0" className="hidden" />
+                    <input type="radio" name="interpret" tabIndex="0" className="hidden" />
                     <label>Need a Basic Interpreter</label>
                   </div>
                 </div>
                 <div className="field">
                   <div className="ui radio checkbox">
-                    <input type="radio" name="interpret" tabindex="0" className="hidden" />
+                    <input type="radio" name="interpret" tabIndex="0" className="hidden" />
                     <label>No Need</label>
                   </div>
                 </div>
