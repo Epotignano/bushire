@@ -7,7 +7,7 @@ import { default as Header } from "../components/Header";
 import { default as NavBar } from "../components/NavBar";
 import { default as Banner } from "../components/Banner";
 import { default as Services } from "../components/Services";
-import { default as Pos } from "../components/Pos";
+import { default as Map } from "../components/Map";
 import { default as PriceGalery } from "../components/PriceGalery";
 import { default as Footer } from "../components/Footer";
 import { default as NavBarFooter } from "../components/NavBarFooter";
@@ -26,16 +26,15 @@ class App extends React.Component{
     }
   }
 
-
   render() {
     return (
       <div>
         <Header />
         <NavBar />
         <Banner />
-        <main className="ui page main content-container">
+        <main className="ui page main content-container">          
           <Services />
-          <Pos />
+          <Map />
           <PriceGalery />
         </main>
         <Footer />
