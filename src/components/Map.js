@@ -39,8 +39,8 @@ class Map extends React.Component {
         fontSize : 11,
         onSelect : function(data){
            $('.ui.small.modal').modal('show');
-           $('.header').html(data.name);
-           $('.content').html(data.area.description);
+           $('#headerModal').html(data.name);
+           $('#contentModal').html(data.area.description);
         }
     });
   }
@@ -87,8 +87,8 @@ class Map extends React.Component {
         <div id="map_container" ></div>
         </div>
         <div className="ui small modal">
-          <div className="header">Header</div>
-          <div className="content">
+          <div className="header" id="headerModal">Header</div>
+          <div className="content" id="contentModal">
             <p>contenido</p>
           </div>
           <div className="actions">
