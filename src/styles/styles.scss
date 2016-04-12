@@ -33,3 +33,86 @@ a.item:hover{
 .menu.item.responsive{
 	text-decoration: none;
 }
+
+.headerImages{
+	background-image: url('../assets/flower.png'), url('../assets/flower.png'), url('../assets/psh_fullsize_distr.png'),url('../assets/flower.png');
+	background-repeat: no-repeat;
+	background-position: 29% -50%, 68% 209%, 100% 60%, 97% 47%;
+}
+
+.main.menu.rama.navbarImages{
+	width:100%;
+	background-image:url('../assets/flower.png'), url('../assets/flower.png'),url('../assets/flower.png'); 
+	background-repeat: no-repeat;
+	background-position: 33.5% -10%, 85% 35%, 75.5% -26%;
+}
+
+.headerImagesColumn{
+	background-image: url('../assets/flower.png'), url('../assets/flower.png'), url('../assets/psh_fullsize_distr.png');
+	background-repeat: no-repeat;
+	background-position: 30% -90%, 50% 125%, 40% 20%;
+}
+.ui.grid.main {
+    margin-top: 1rem;
+}
+
+.content-container {
+ padding-top : 2.0rem;
+}
+
+.ui.menu.fixed {
+  border: 1px solid #DDD;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+a.item{
+	color:white;
+}
+
+a.item:hover{
+	color:black;
+}
+
+.hsearch.ui.column.category.search{
+	padding-top:0.5rem;
+	padding-bottom:0.5rem;
+}
+
+.ui.search .prompt{
+	width:280px;
+	border: 1px solid rgba(0, 0, 0, 0.0);
+}
+
+.menu.item.responsive{
+	text-decoration: none;
+}
+
+#rama{
+	width:17%;
+	height:auto;
+	padding:0;
+	z-index:60;
+}
+
+.ui.image.small.rama{
+	position:absolute;
+	z-index:70;
+	width:100%;
+	height:170px;
+}
+
+.ui.navbar.menu{
+	width:100%;
+}
+
+#ramaRight{
+	width:17%;
+	height:auto;
+	padding:0;
+	z-index:60;
+	-webkit-transform: rotate(130deg);
+	-moz-transform: rotate(130deg);
+	-ms-transform: rotate(130deg);
+	-o-transform: rotate(130deg);
+	transform: rotate(130deg);
+}

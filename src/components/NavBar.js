@@ -15,10 +15,10 @@ class NavBar extends React.Component {
     $('.main.menu').visibility({
         type: 'fixed'
       });
-      $('.overlay').visibility({
-        type: 'fixed',
-        offset: 100
-      });
+      //$('.overlay').visibility({
+      //  type: 'fixed',
+      //  offset: 100
+      //});
 
       // show dropdown on hover
       $('.main.menu  .ui.dropdown').dropdown({
@@ -36,27 +36,32 @@ class NavBar extends React.Component {
     const { router } = this.context;
 
     return (
-      <div className="ui grid">
-        <div className="computer tablet only row">
-          <nav className="ui borderless main menu">
+      <div className="ui grid ">
+        <div className="computer tablet only row ">
+          <nav className="ui borderless main menu rama navbarImages">
+            <div className="item" id="rama">
+              <img  className="ui image small rama" src="../assets/rama.png"/>
+            </div>
             <div className="item">
               <img  className="ui image small" src="../assets/logo.png"/>
             </div>
-            <div className="ui text container">
+            <div className="item" >
               <a href="#" className="item">Airport Transfers</a>
-              <a href="#" className="item">Charters & Hill</a>
-              <a href="#" className="item">Fleet</a>
+               <a href="#" className="item">Fleet</a>
               <a href="#" className="item">Optional services & Hill</a>
               <Link to="/about" className="item">About us</Link>
               <a href="#" className="item">FAQ</a>
             </div>
+            <div className="item right" id="ramaRight">
+              <img  className="ui image small rama" src="../assets/rama.png"/>
+            </div>
           </nav>
         </div>
         <div className="mobile only row">
-          <div className="navbar menu">
+          <div className="ui navbar menu">
             <div className="right menu open">
               <a href="#" className="menu item responsive">
-                <i className="icon red big content"></i>
+                <img className="ui image mini" src="../assets/lines.png"/>
               </a>
             </div>
           </div>
@@ -67,8 +72,7 @@ class NavBar extends React.Component {
             <a href="" className="item">Fleet</a>
             <a href="" className="item">Optional services & Hill</a>
             <Link to="/about" className="item">About us</Link>
-            <a href="#" className="item">FAQ</a>
-            
+            <a href="#" className="item">FAQ</a>            
           </div>
         </div>      
       </div>
