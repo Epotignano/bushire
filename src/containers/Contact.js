@@ -27,8 +27,8 @@ class Contact extends React.Component{
         <div className="ui one column grid container">
           <div className="column">
             <form className="ui form">
-              <h1 className="ui dividing header red">ペ ー ジ タ イ ト ル 　 Free Quote ?</h1>
-              <div className="field">
+              <h1 className="ui dividing header red">Free Quote </h1>
+              <div className="required field">
                 <label>Name</label>
                 <div className="fields">
                   <div className="two wide field">
@@ -57,14 +57,16 @@ class Contact extends React.Component{
               </div>
               <div className="field">
                 <div className="fields">
+                 <div className="required field">
                   <div className="eight wide field">
                     <label>Email</label>
                     <input type="text" name="shipping[email]" placeholder="Email" />
                   </div>
-                  <div className="two wide field">
-                    <label>Country Code</label>
-                    <input type="text" name="shipping[countryCode]" placeholder="Country code +81" />
-                  </div>
+                </div>
+                <div className="two wide field">
+                  <label>Country Code</label>
+                  <input type="text" name="shipping[countryCode]" placeholder="Country code +81" />
+                </div>
                   <div className="six wide field">
                     <label>Phone Number</label>
                     <input type="text" name="shipping[phoneNumber]" placeholder="Phone Number" />
@@ -72,12 +74,12 @@ class Contact extends React.Component{
                 </div>
               </div>
               <div className="two fields">
-                <div className="field">
+                <div className="required field">
                   <label>Service Type</label>
                   <select className="ui fluid dropdown">
                     <option value="Airport">Airport</option>
                     <option value="Charter&hire">Charter & hire</option>
-                    <option value="other">その他御社サービス 選択</option>
+                    <option value="other">other services</option>
                   </select>
                 </div>
                 <div className="field">
@@ -94,21 +96,23 @@ class Contact extends React.Component{
                 </div>
               </div>
               <div className="two fields">
-                <div className="field">
+                <div className="required field">
                   <label>Passengers</label>
                   <input type="text" name="shipping[numPassengers]" placeholder="Number of Passengers" />
                 </div>
-                <div className="field">
+                <div className="required field">
                   <label>Number of Suitcases</label>
                   <input type="text" name="shipping[numSuitcases]" placeholder="Number of Suitcases" />
                 </div>
               </div>
               <h3 className="ui dividing header">Day 1</h3>
-              <div className="field">
+              <div className="required field">
                 <div className="fields">
                   <div className="two wide field">
-                    <label>Pick Up Time</label>
-                    <input type="text" name="shipping[pickUpTime]" placeholder="Pick up time" />
+                    <select className="ui fluid dropdown">
+                      <option value="AM">AM</option>
+                      <option value="PM">PM</option>
+                    </select>
                   </div>
                   <div className="fourteen wide field">
                     <label>Pick Up Location</label>
@@ -116,17 +120,22 @@ class Contact extends React.Component{
                   </div>
                 </div>
               </div>
-              <div className="field">
+              <div className="required field">
                 <div className="fields">
                   <div className="two wide field">
-                    <label>Drop Off Time</label>
-                    <input type="text" name="shipping[dropOfTime]" placeholder="Drop Of Time" />
+                    <select className="ui fluid dropdown">
+                      <option value="AM">AM</option>
+                      <option value="PM">PM</option>
+                    </select>
                   </div>
                   <div className="fourteen wide field">
                     <label>Drop Of Location</label>
                     <input type="text" name="shipping[dropOfLocation]" placeholder="Drop Of Location" />
                   </div>
                 </div>
+              </div>
+              <div className="field">
+                <input type="text" name="shipping[FlightNumber]" placeholder="FlightNumber" />
               </div>
               <div className="field">
                 <label>Trip Itinerary</label>
@@ -155,7 +164,7 @@ class Contact extends React.Component{
               </div>
               <div className="field">
                 <button className="ui red left floated button">Add Day</button>
-                <input type="submit" value="ログイン" className="ui green right floated button"/>
+                <input type="submit" value="SUBMIT" className="ui green right floated button"/>
               </div>
             </form>
           </div>
