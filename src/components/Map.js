@@ -32,11 +32,15 @@ class Map extends React.Component {
         //borderLineColor: "#f2fcff",
         borderLineWidth : 0,
         lineColor : "#a0a0a0",
+        showsAreaName : true,
         lineWidth: 0,
         drawsBoxLine: true,
         prefectureNameType: "short",
+        font : "MS Mincho",
+        fontSize : 15,
+        fontColor : "areaColor",
+        fontShadowColor : "black",
         movesIslands : true,
-        fontSize : 11,
         onSelect : function(data){
            $('.ui.small.modal').modal('show');
            $('#headerModal').html(data.name);

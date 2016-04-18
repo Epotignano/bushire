@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Dropdown, Text, Icon, Menu, Item } from "react-semantify";
 import { Link } from "react-router";
+import ImageService from "../assets/image.png";
 
 //var uid = localStorage.getItem(UidRef);
 
@@ -14,28 +15,28 @@ class Services extends React.Component {
     return (
       <div className="ui grid">
         <div className="four wide column">
-          <img className="ui tiny circular right floated image" src="../assets/image.png" />
+          <img className="ui tiny circular right floated image" src={ImageService} />
         </div>
         <div className="twelve wide mobile four wide computer column">
           <div className="ui header red">header 1</div>
           <p>Lorem ipsum Pariatur aliqua ea irure culpa fugiat ad in mollit proident velit consectetur do</p>
         </div>
         <div className="four wide mobile two wide computer column">
-          <img className="ui tiny circular right floated image" src="../assets/image.png" />
+          <img className="ui tiny circular right floated image" src={ImageService} />
         </div>
         <div className="twelve wide mobile four wide computer column">
           <div className="ui header red">header 2</div>
           <p>Lorem ipsum Pariatur aliqua ea irure culpa fugiat ad in mollit proident velit consectetur do</p>
         </div>
         <div className="four wide column">
-          <img className="ui tiny circular right floated image" src="../assets/image.png" />
+          <img className="ui tiny circular right floated image" src={ImageService} />
         </div>
         <div className="twelve wide mobile four wide computer column">
           <div className="ui header red">header 3</div>
           <p>Lorem ipsum Pariatur aliqua ea irure culpa fugiat ad in mollit proident velit consectetur do</p>
         </div>
         <div className="four wide mobile two wide computer column">
-          <img className="ui tiny circular right floated image" src="../assets/image.png" />
+          <img className="ui tiny circular right floated image" src={ImageService} />
         </div>
         <div className="twelve wide mobile four wide computer column">
           <div className="ui header red">header 4</div>

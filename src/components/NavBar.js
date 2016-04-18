@@ -7,6 +7,9 @@ import { connect } from 'react-redux';
 import { Link } from "react-router";
 import Firebase from 'firebase';
 import { FireRef, UidRef } from '../constants/Commons';
+import LogoImg from '../assets/logo.png';
+import Rama from '../assets/rama.png';
+import ButtonMenuLines from '../assets/lines.png';
 
 var uid = localStorage.getItem(UidRef);
 
@@ -40,10 +43,10 @@ class NavBar extends React.Component {
         <div className="computer tablet only row ">
           <nav className="ui borderless main menu rama navbarImages">
             <div className="item" id="rama">
-              <img  className="ui image small rama" src="../assets/rama.png"/>
+              <img  className="ui image small rama" src={Rama}/>
             </div>
             <div className="item">
-              <img  className="ui image small" src="../assets/logo.png"/>
+              <img  className="ui image small" src={LogoImg}/>
             </div>
             <div className="item" >
               <a href="#" className="item">Airport Transfers</a>
@@ -53,7 +56,7 @@ class NavBar extends React.Component {
               <a href="#" className="item">FAQ</a>
             </div>
             <div className="item right" id="ramaRight">
-              <img  className="ui image small rama" src="../assets/rama.png"/>
+              <img  className="ui image small rama" src={Rama}/>
             </div>
           </nav>
         </div>
@@ -61,7 +64,7 @@ class NavBar extends React.Component {
           <div className="ui navbar menu">
             <div className="right menu open">
               <a href="#" className="menu item responsive">
-                <img className="ui image mini" src="../assets/lines.png"/>
+                <img className="ui image mini" src={ButtonMenuLines}/>
               </a>
             </div>
           </div>

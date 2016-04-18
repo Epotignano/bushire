@@ -1,6 +1,6 @@
 {
-  "name": "react-slingshot",
-  "version": "1.1.1",
+  "name": "bushire",
+  "version": "1.0.0",
   "description": "Starter kit for creating apps with React and Redux",
   "scripts": {
     "prestart": "npm run remove-dist",
@@ -12,7 +12,7 @@
     "remove-dist": "node_modules/.bin/rimraf ./dist",
     "build:html": "babel-node tools/buildHtml.js",
     "prebuild": "npm run clean-dist && npm run build:html",
-    "build": "npm run test && babel-node tools/build.js && npm run open:dist",
+    "build": "babel-node tools/build.js && npm run open:dist",
     "test": "cross-env NODE_ENV=test mocha --reporter progress --compilers js:babel/register --recursive \"./src/**/*.spec.js\"",
     "test:watch": "npm run test -- --watch"
   },

@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Dropdown, Text, Icon, Menu, Item } from "react-semantify";
 import { Link } from "react-router";
+import BannerImage from "../assets/header.png";
 
 //var uid = localStorage.getItem(UidRef);
 
@@ -13,7 +14,7 @@ class Banner extends React.Component {
 
     return (
       <div className="ui fluid image">
-        <img src="../assets/image.png" style={{'height':'500px'}} />
+        <img src={BannerImage} style={{'height':'680px'}} />
       </div>
     );
   }
