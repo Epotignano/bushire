@@ -5,78 +5,235 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { default as Header } from "../components/Header";
 import { default as NavBar } from "../components/NavBar";
-import { default as Banner } from "../components/Banner";
-import { default as Services } from "../components/Services";
-import { default as PriceGalery } from "../components/PriceGalery";
 import { default as Footer } from "../components/Footer";
 import { default as NavBarFooter } from "../components/NavBarFooter";
 import { default as Copyright } from "../components/Copyright";
-import Firebase from 'firebase';
-import { FireRef } from '../constants/Commons';
-import { getUser } from '../actions/UserActions'
+//import { sendEmail } from "../actions/ContactActions";
+
+import { default as AddDay } from "../components/forms/AddDay";
+
+let fieldsValidations = {
+  name: {
+          identifier : 'name',
+          rules: [
+            {
+              type   : 'empty',
+              prompt : 'Name is required'
+            }
+          ]
+        },
+        email: {
+          identifier : 'email',
+          rules: [
+            {
+              type   : 'email',
+              prompt : 'Please enter a valid e-mail'
+            },
+            {
+              type   : 'empty',
+              prompt : 'Email is required'
+            }
+          ]
+        },
+        numPassengers:{
+          identifier:'numPassengers',
+          rules:[
+            {
+              type:'integer',
+              prompt : 'Please enter a valid number'
+            },
+            {
+              type:'empty',
+              prompt : 'Number of passengers is required'
+            }
+          ]
+        },
+        numSuitcases:{
+          identifier:'numSuitcases',
+          rules:[
+            {
+              type:'integer',
+              prompt : 'Please enter a valid number'
+            },
+            {
+              type:'empty',
+              prompt : 'Number of suitcases is required'
+            }
+          ]
+        },
+        pickUpTime1: {
+          identifier : 'pickUpTime1',
+          rules: [
+            {
+              type   : 'empty',
+              prompt : 'Pick Up Time is required'
+            }
+          ]
+        },
+        pickUpLocation1: {
+          identifier : 'pickUpLocation1',
+          rules: [
+            {
+              type   : 'empty',
+              prompt : 'Pick Up Location is required'
+            }
+          ]
+        },
+        dropOfTime1: {
+          identifier : 'dropOfTime1',
+          rules: [
+            {
+              type   : 'empty',
+              prompt : 'Drop Of Time is required'
+            }
+          ]
+        },
+        dropOfLocation1: {
+          identifier : 'dropOfLocation1',
+          rules: [
+            {
+              type   : 'empty',
+              prompt : 'Drop Of Location is required'
+            }
+          ]
+        }
+      }
 
 class Contact extends React.Component{
   componentDidMount(){
-    $('.ui.radio.checkbox').checkbox();
+    $('.ui.form').form({
+      fields: fieldsValidations,
+      inline:true
+    });
+  }
+  componentDidUpdate(){
+    $('.ui.form').form({
+      fields: fieldsValidations,
+      inline:true
+    });
+  }
+  addDay() {
+    let size = this.props.size + 1;
+    console.log('size' + size);
+    let datos = this.props.data;
+    datos.push(size);
+    let dispatch = this.props.dispatch;
+    fieldsValidations['pickUpTime'+size]={
+          identifier : 'pickUpTime'+size,
+          rules: [
+            {
+              type   : 'empty',
+              prompt : 'Pick Up Time is required'
+            }
+          ]
+        };
+    fieldsValidations['pickUpLocation'+size]={
+          identifier : 'pickUpLocation'+size,
+          rules: [
+            {
+              type   : 'empty',
+              prompt : 'Pick Up Location is required'
+            }
+          ]
+        };
+    fieldsValidations['dropOfTime'+size]={
+          identifier : 'dropOfTime'+size,
+          rules: [
+            {
+              type   : 'empty',
+              prompt : 'Drop Of Time is required'
+            }
+          ]
+        };
+    fieldsValidations['dropOfLocation'+size]={
+          identifier : 'dropOfLocation'+size,
+          rules: [
+            {
+              type   : 'empty',
+              prompt : 'Drop Of Location is required'
+            }
+          ]
+        };
+    dispatch({type:"ADD_DAYS", size:size, data:datos});
+  }
+  removeDay() {
+    let size = this.props.size - 1;
+    let datos = this.props.data;
+    datos = datos.slice(0,size);
+    let dispatch = this.props.dispatch;
+    dispatch({type:"ADD_DAYS", size:size, data:datos});
   }
   render() {
+    const {dispatch} = this.props;
+    let dias=this.props.data;
+    let size=this.props.size;
+    console.log("dias"+ dias);
+    var days = dias.map(function(day) {
+      return (<AddDay day={day} key={day}/>);
+    });
+    let deleteButton='';
+    if(size>1){
+      deleteButton = <button className="ui red left floated button" onClick={this.removeDay.bind(this)}>Remove Day</button>;
+    }
     return (
       <div>
         <Header />
         <NavBar />
         <div className="ui one column grid container">
           <div className="column">
-            <form className="ui form">
+            <form className="ui form" onSubmit={(e)=>{
+                e.preventDefault();
+                //dispatch(sendEmail());
+              }
+            }>
               <h1 className="ui dividing header red">Free Quote </h1>
               <div className="required field">
                 <label>Name</label>
                 <div className="fields">
                   <div className="two wide field">
-                    <select className="ui fluid dropdown">
+                    <select name="personType" className="ui fluid dropdown">
                       <option value="Mr">Mr</option>
                       <option value="Mrs">Mrs</option>
                       <option value="Ms">Ms</option>
                     </select>
                   </div>
                   <div className="fourteen wide field">
-                    <input type="text" name="shipping[last-name]" placeholder="Name" />
+                    <input type="text" name="name" placeholder="Name" />
                   </div>
                 </div>
               </div>
               <div className="two fields">
                 <div className="field">
                   <label>Group Name</label>
-                  <input type="text" name="shipping[groupName]" placeholder="Group Name" />
+                  <input type="text" name="groupName" placeholder="Group Name" />
                 </div>
                 <div className="field">
                   <label>Country</label>
-                  <select className="ui fluid dropdown">
+                  <select name="country" className="ui fluid dropdown">
                     <option value="Japan">Japan</option>
                   </select>
                 </div>
               </div>
               <div className="field">
                 <div className="fields">
-                 <div className="required field">
-                  <div className="eight wide field">
+                  <div className="eight wide required field">
                     <label>Email</label>
-                    <input type="text" name="shipping[email]" placeholder="Email" />
+                    <input type="email" name="email" placeholder="Email" />
                   </div>
-                </div>
-                <div className="two wide field">
-                  <label>Country Code</label>
-                  <input type="text" name="shipping[countryCode]" placeholder="Country code +81" />
-                </div>
+                  <div className="two wide field">
+                    <label>Country Code</label>
+                    <input type="text" name="countryCode" placeholder="Country code +81" />
+                  </div>
                   <div className="six wide field">
                     <label>Phone Number</label>
-                    <input type="text" name="shipping[phoneNumber]" placeholder="Phone Number" />
+                    <input type="text" name="phoneNumber" placeholder="Phone Number" />
                   </div>
                 </div>
               </div>
               <div className="two fields">
                 <div className="required field">
                   <label>Service Type</label>
-                  <select className="ui fluid dropdown">
+                  <select name="serviceType" className="ui fluid dropdown">
                     <option value="Airport">Airport</option>
                     <option value="Charter&hire">Charter & hire</option>
                     <option value="other">other services</option>
@@ -84,7 +241,7 @@ class Contact extends React.Component{
                 </div>
                 <div className="field">
                   <label>Vehicle</label>
-                  <select className="ui fluid dropdown">
+                  <select name="vehicle" className="ui fluid dropdown">
                     <option value="Sedan">Sedan</option>
                     <option value="Mini Van">Mini Van</option>
                     <option value="Large Van">Large Van</option>
@@ -98,72 +255,17 @@ class Contact extends React.Component{
               <div className="two fields">
                 <div className="required field">
                   <label>Passengers</label>
-                  <input type="text" name="shipping[numPassengers]" placeholder="Number of Passengers" />
+                  <input type="number" name="numPassengers" placeholder="Number of Passengers" />
                 </div>
                 <div className="required field">
                   <label>Number of Suitcases</label>
-                  <input type="text" name="shipping[numSuitcases]" placeholder="Number of Suitcases" />
+                  <input type="number" name="numSuitcases" placeholder="Number of Suitcases" />
                 </div>
               </div>
-              <h3 className="ui dividing header">Day 1</h3>
-              <div className="required field">
-                <div className="fields">
-                  <div className="two wide field">
-                    <select className="ui fluid dropdown">
-                      <option value="AM">AM</option>
-                      <option value="PM">PM</option>
-                    </select>
-                  </div>
-                  <div className="fourteen wide field">
-                    <label>Pick Up Location</label>
-                    <input type="text" name="shipping[pickUpLocation]" placeholder="Pick Up Location" />
-                  </div>
-                </div>
-              </div>
-              <div className="required field">
-                <div className="fields">
-                  <div className="two wide field">
-                    <select className="ui fluid dropdown">
-                      <option value="AM">AM</option>
-                      <option value="PM">PM</option>
-                    </select>
-                  </div>
-                  <div className="fourteen wide field">
-                    <label>Drop Of Location</label>
-                    <input type="text" name="shipping[dropOfLocation]" placeholder="Drop Of Location" />
-                  </div>
-                </div>
-              </div>
+              {days}
               <div className="field">
-                <input type="text" name="shipping[FlightNumber]" placeholder="FlightNumber" />
-              </div>
-              <div className="field">
-                <label>Trip Itinerary</label>
-                <textarea></textarea>
-              </div>
-              <div className="grouped fields">
-                <label htmlFor="interpret">Interpreting Service</label>
-                <div className="field">
-                  <div className="ui radio checkbox">
-                    <input type="radio" name="interpret" checked="" tabIndex="0" className="hidden" />
-                    <label>Need a Professional Guide</label>
-                  </div>
-                </div>
-                <div className="field">
-                  <div className="ui radio checkbox">
-                    <input type="radio" name="interpret" tabIndex="0" className="hidden" />
-                    <label>Need a Basic Interpreter</label>
-                  </div>
-                </div>
-                <div className="field">
-                  <div className="ui radio checkbox">
-                    <input type="radio" name="interpret" tabIndex="0" className="hidden" />
-                    <label>No Need</label>
-                  </div>
-                </div>
-              </div>
-              <div className="field">
-                <button className="ui red left floated button">Add Day</button>
+                <button className="ui red left floated button" onClick={this.addDay.bind(this)}>Add Day</button>
+                {deleteButton}
                 <input type="submit" value="SUBMIT" className="ui green right floated button"/>
               </div>
             </form>
@@ -177,11 +279,11 @@ class Contact extends React.Component{
 }
 
 function mapStateProps(state) {
-    const { about } = state
-    const { output } = about;
+    const { days } = state
+    const { data, size } = days;
 
     return {
-        output
+        data, size
     };
 }
 
