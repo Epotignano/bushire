@@ -31,7 +31,7 @@ class NavBar extends React.Component {
         e.preventDefault();
       $('.ui.vertical.menu').toggle();
       });
-    
+
       $('.ui.dropdown').dropdown();
   }
   render() {
@@ -43,20 +43,20 @@ class NavBar extends React.Component {
         <div className="computer tablet only row ">
           <nav className="ui borderless main menu rama navbarImages">
             <div className="item" id="rama">
-              <img  className="ui image small rama" src={Rama}/>
+
             </div>
             <div className="item">
               <img  className="ui image small" src={LogoImg}/>
             </div>
             <div className="item" >
-              <a href="#" className="item">Airport Transfers</a>
-               <a href="#" className="item">Fleet</a>
-              <a href="#" className="item">Optional services & Hill</a>
-              <Link to="/about" className="item">About us</Link>
-              <a href="#" className="item">FAQ</a>
+              <a href="#" className="item bigText">Airport Transfers</a>
+               <a href="#" className="item bigText">Fleet</a>
+              <a href="#" className="item bigText">Optional services & Hill</a>
+              <Link to="/about" className="item bigText">About us</Link>
+              <a href="#" className="item bigText">FAQ</a>
             </div>
             <div className="item right" id="ramaRight">
-              <img  className="ui image small rama" src={Rama}/>
+
             </div>
           </nav>
         </div>
@@ -75,9 +75,9 @@ class NavBar extends React.Component {
             <a href="" className="item">Fleet</a>
             <a href="" className="item">Optional services & Hill</a>
             <Link to="/about" className="item">About us</Link>
-            <a href="#" className="item">FAQ</a>            
+            <a href="#" className="item">FAQ</a>
           </div>
-        </div>      
+        </div>
       </div>
     )
   }

@@ -42,7 +42,7 @@ a.item:hover{
 
 .main.menu.rama.navbarImages{
 	width:100%;
-	background-image:url('../assets/flower.png'), url('../assets/flower.png'),url('../assets/flower.png'); 
+	background-image:url('../assets/flower.png'), url('../assets/flower.png'),url('../assets/flower.png');
 	background-repeat: no-repeat;
 	background-position: 33.5% -10%, 85% 35%, 75.5% -26%;
 }
@@ -76,6 +76,10 @@ a.item:hover{
 .hsearch.ui.column.category.search{
 	padding-top:0.5rem;
 	padding-bottom:0.5rem;
+}
+
+.item.bigText {
+  font-size: 1.35rem;
 }
 
 .ui.search .prompt{

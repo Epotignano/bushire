@@ -13,8 +13,12 @@ class Banner extends React.Component {
     const { router } = this.context;
 
     return (
-      <div className="ui fluid image">
-        <img src={BannerImage} style={{'height':'680px'}} />
+      <div className="ui grid">
+        <div className="ui fourteen wide column centered tablet computer only">
+          <div className="ui fluid image">
+            <img src={BannerImage} style={{'height':'680px'}} />
+          </div>
+        </div>
       </div>
     );
   }
