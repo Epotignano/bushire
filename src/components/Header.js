@@ -48,7 +48,7 @@ class Header extends React.Component {
     const { router, store } = this.context;
     return (
       <header>
-        <div className="ui two column center aligned stackable grid inverted menu navbar pink ">        
+        <div className="ui two column center aligned stackable grid inverted menu navbar pink ">
          <div className=" column headerImages">
          Japan wide bus & Limo Charter services
           </div>
