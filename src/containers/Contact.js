@@ -137,17 +137,7 @@ class Contact extends React.Component{
       */
     }
     console.log(email);
-    
-    var formData = {
-      api_user:"miguel88",
-      api_key:"miguel01",
-      to:email,
-      toname:"Japan Bus",
-      subject:"Only testing",
-      html:"<h3>This is a test of an email</h3>",
-      from:"test@gmail.com"
-    };
- 
+
     $.ajax({
         url : "https://api.sendgrid.com/api/mail.send.json",
         type: "POST",
