@@ -18,7 +18,7 @@ class AddDay extends React.Component{
           <div className="field">
             <div className="fields">
               <div className="four wide required field">
-                <label>Pick Up Date</label>
+                <label>Pick Up Date(JAPAN)</label>
                 <DatePickerInput displayFormat='DD/MM/YYYY' returnFormat='YYYY-MM-DD' className='my-react-component'
                   onChange={(jsDate, dateString) => this.setState({datePickerInputDate: dateString})} 
                   defaultValue={yesterday}
@@ -28,7 +28,7 @@ class AddDay extends React.Component{
                   iconClassName='calendar icon'/>
               </div>
               <div className="two wide required field">
-                <label>Pick Up Time</label>
+                <label>Pick Up Time(JAPAN)</label>
                 <input type="text" name={'pickUpTime' + day} placeholder="06:39" />
               </div>
               <div className="two wide field">
