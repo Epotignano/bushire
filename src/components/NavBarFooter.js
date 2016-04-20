@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Dropdown, Text, Icon, Menu, Item } from "react-semantify";
 import { Link } from "react-router";
 import ImageRama from "../assets/rama.png";
+import ImageRama1 from "../assets/icon_tree.png";
 
 //var uid = localStorage.getItem(UidRef);
 
@@ -40,7 +41,7 @@ class NavBarFooter extends React.Component {
             </div>
           </div>
           <div className="three wide computer only column" id="rama">
-            <img className="ui image small ramaFooterRight" src={ImageRama} />
+            <img className="ui image small ramaFooterRight" src={ImageRama1} />
           </div>
         </div>
       </div>
