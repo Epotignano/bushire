@@ -101,15 +101,66 @@ let fieldsValidations = {
 
 class Contact extends React.Component{
   componentDidMount(){
+    console.log('componentDidMount');
+    let dispatch = this.props.dispatch;
     $('.ui.form').form({
       fields: fieldsValidations,
-      inline:true
+      inline:true,
+      onSuccess: this.handleSubmit
     });
   }
   componentDidUpdate(){
+    $('.ui.form').form('destroy');
     $('.ui.form').form({
       fields: fieldsValidations,
-      inline:true
+      inline:true,
+      onSuccess: this.handleSubmit
+    });
+  }
+  handleSubmit(d){
+    console.log("handleSubmit");
+    console.log(d);
+    let email='';
+    for(let i=0;i<d.target.length;i++)
+    {
+      switch(d.target[i].name){
+        case 'email':
+          email=$('.ui.form').form('get field', d.target[i].name).val();
+          break;
+      }
+      /*if(d.target.type=='button')
+        break;
+      if(d.target[i].name!="")
+        console.log($('.ui.form').form('get field', d.target[i].name).val());
+      else
+        console.log(d.target[i].value);
+      */
+    }
+    console.log(email);
+    
+    var formData = {
+      api_user:"miguel88",
+      api_key:"miguel01",
+      to:email,
+      toname:"Japan Bus",
+      subject:"Only testing",
+      html:"<h3>This is a test of an email</h3>",
+      from:"test@gmail.com"
+    };
+ 
+    $.ajax({
+        url : "https://api.sendgrid.com/api/mail.send.json",
+        type: "POST",
+        data : formData,
+        success: function(data, textStatus, jqXHR)
+        {
+            //data - response from server
+            console.log(data);
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+     
+        }
     });
   }
   addDay() {
@@ -173,7 +224,7 @@ class Contact extends React.Component{
     });
     let deleteButton='';
     if(size>1){
-      deleteButton = <button className="ui red left floated button" onClick={this.removeDay.bind(this)}>Remove Day</button>;
+      deleteButton = <button className="ui red left floated button" onClick={e=>{e.preventDefault(); this.removeDay()}}>Remove Day</button>;
     }
     return (
       <div>
@@ -181,35 +232,36 @@ class Contact extends React.Component{
         <NavBar />
         <div className="ui one column grid container">
           <div className="column">
-            <form className="ui form" onSubmit={(e)=>{
-                e.preventDefault();
-                //dispatch(sendEmail());
-              }
-            }>
+            <form className="ui form" onSubmit={e=>{
+              let p = this.props;
+              const {isCorrect} = p;
+              console.log('in submit form');
+              e.preventDefault();
+            }}>
               <h1 className="ui dividing header red">Free Quote </h1>
               <div className="required field">
                 <label>Name</label>
                 <div className="fields">
                   <div className="two wide field">
-                    <select name="personType" className="ui fluid dropdown">
+                    <select ref="personType" name="personType" className="ui fluid dropdown">
                       <option value="Mr">Mr</option>
                       <option value="Mrs">Mrs</option>
                       <option value="Ms">Ms</option>
                     </select>
                   </div>
                   <div className="fourteen wide field">
-                    <input type="text" name="name" placeholder="Name" />
+                    <input type="text" name="name" ref="name" placeholder="Name" />
                   </div>
                 </div>
               </div>
               <div className="two fields">
                 <div className="field">
                   <label>Group Name</label>
-                  <input type="text" name="groupName" placeholder="Group Name" />
+                  <input type="text" name="groupName" ref="groupName" placeholder="Group Name" />
                 </div>
                 <div className="field">
                   <label>Country</label>
-                  <select name="country" className="ui fluid dropdown">
+                  <select name="country" ref="country" className="ui fluid dropdown">
                     <option value="Japan">Japan</option>
                   </select>
                 </div>
@@ -264,9 +316,9 @@ class Contact extends React.Component{
               </div>
               {days}
               <div className="field">
-                <button className="ui red left floated button" onClick={this.addDay.bind(this)}>Add Day</button>
+                <button className="ui red left floated button" onClick={e=>{e.preventDefault(); this.addDay()}}>Add Day</button>
                 {deleteButton}
-                <input type="submit" value="SUBMIT" className="ui green right floated button"/>
+                <button className="ui green right floated button">SUBMIT</button>
               </div>
             </form>
           </div>
@@ -280,10 +332,10 @@ class Contact extends React.Component{
 
 function mapStateProps(state) {
     const { days } = state
-    const { data, size } = days;
+    const { data, size, isCorrect } = days;
 
     return {
-        data, size
+        data, size, isCorrect
     };
 }
 

@@ -3,6 +3,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Dropdown, Text, Icon, Menu, Item } from "react-semantify";
 import { Link } from "react-router";
+import ImageVisaMaster from "../assets/logo_visa_master.png";
+import ImageAmerican from "../assets/logo_americanexp.png";
 
 //var uid = localStorage.getItem(UidRef);
 
@@ -32,7 +34,15 @@ class Footer extends React.Component {
             <h3 className="ui red header">Bussines and Partners</h3>
           </div>
           <div className="two wide column">
-            <h3 className="ui red header">My Shuttle</h3>
+            <h3 className="ui red header">Payment Methods</h3>
+            <div className="ui one column grid">
+              <div className="column">
+                <img className="ui medium image" src={ImageVisaMaster} />
+              </div>
+              <div className="column">
+                <img className="ui tiny image" src={ImageAmerican} />
+              </div>
+            </div>
           </div>
         </div>
       </div>

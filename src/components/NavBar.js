@@ -43,20 +43,32 @@ class NavBar extends React.Component {
         <div className="computer tablet only row ">
           <nav className="ui borderless main menu rama navbarImages">
             <div className="item" id="rama">
-
             </div>
             <div className="item">
               <img  className="ui image small" src={LogoImg}/>
             </div>
             <div className="item" >
+            <div className="ui grid ">
+            <div className='right aligned five column row'>
+              <div className=" column "> </div>
+              <div className=" column "> </div>
+              <div className=" column "> </div>
+              <div className="column ">
+                <button type="button" className="ui rounded button green">LINE</button>
+                <button type="button" className="ui button teal"> <Link  className="quotelink" to="/contact" >QUOTE</Link></button>
+              </div>
+              <div className=" column "> </div>
+            </div>
+            <div className="row">
               <a href="#" className="item bigText">Airport Transfers</a>
                <a href="#" className="item bigText">Fleet</a>
               <a href="#" className="item bigText">Optional services & Hill</a>
               <Link to="/about" className="item bigText">About us</Link>
               <a href="#" className="item bigText">FAQ</a>
+              </div>
+            </div>
             </div>
             <div className="item right" id="ramaRight">
-
             </div>
           </nav>
         </div>
