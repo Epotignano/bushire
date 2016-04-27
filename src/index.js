@@ -8,6 +8,7 @@ import { Router, Route, browserHistory, hashHistory, IndexRoute } from 'react-ro
 import App from './containers/App';
 import AboutUs from './containers/AboutUs';
 import Contact from './containers/Contact';
+import TermsConditions from './containers/TermsConditions';
 import Dashboard from './containers/Dashboard';
 import Login from './containers/Login';
 import ProfileFlowContainer from './containers/profileFlow/Container';
@@ -44,6 +45,7 @@ render(
         </Route>
       </Route>
       <Route name="aboutUs" path="/about" component={AboutUs} />
+      <Route name="terms" path="/terms" component={TermsConditions} />
       <Route name="contact" path="/contact" component={Contact} />
       <Route name="access" path="/access" component={Auth}>
         <Route name="login" path="/access/login" component={Login}/>

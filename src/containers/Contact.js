@@ -138,6 +138,8 @@ class Contact extends React.Component{
     }
     console.log(email);
 
+    let formData = {};
+
     $.ajax({
         url : "https://api.sendgrid.com/api/mail.send.json",
         type: "POST",

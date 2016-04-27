@@ -364,3 +364,84 @@ a.quotelink:hover{
   color:white;
   text-decoration:none;
 }
+
+/*************Terms and Conditions ******************/
+.borderGrid > .ui.grid:last-child{
+  margin-bottom:20px;
+}
+
+/*grid with two and fourteen column*/
+.borderGrid > .ui.grid .sixteen.column{
+  border:1px solid
+}
+.borderGrid > .ui.grid .two.column{
+  border-left:1px solid;
+}
+.borderGrid > .ui.grid .fourteen.column{
+  border-left:1px solid;
+  border-right:1px solid;
+}
+.borderGrid > .ui.grid .end, .borderGrid > .ui.grid .fourteen.column:last-child{
+  border-bottom:1px solid;
+}
+
+/**/
+.borderGrid > .ui.grid .twelve.column{
+  border-left:1px solid;
+  border-bottom:1px solid;
+}
+.borderGrid > .ui.grid .four.column{
+  border-left:1px solid;
+  border-right:1px solid;
+  border-bottom:1px solid;
+}
+.borderGrid > .ui.grid .twelve.column:first-child{
+  border-top:1px solid;
+  border-bottom:0;
+}
+.borderGrid > .ui.grid .four.column.start{
+  border-top:1px solid;
+  border-bottom:0;
+}
+.borderGrid > .ui.grid .column.endSixteen{
+  border-top:0;
+}
+
+
+.borderGrid > .ui.grid .ten.column{
+  border-top:1px solid;
+  border-left:1px solid;
+}
+.borderGrid > .ui.grid .six.column{
+  border-top:1px solid;
+  border-left:1px solid;
+  border-right:1px solid;
+}
+.borderGrid > .ui.grid .three.column{
+  border-top:1px solid;
+  border-left:1px solid;
+  border-right:1px solid;
+}
+
+.borderGrid > .ui.grid.invertida .two.column{
+  border-left:1px solid;
+  border-right:1px solid;
+}
+.borderGrid > .ui.grid.invertida .fourteen.column{
+  border-left:1px solid;
+}
+
+/*DIV in grid column terms and conditions*/
+.borderGrid > .ui.grid .column div{
+  border-bottom:1px solid;
+}
+.borderGrid > .ui.grid .column div:last-child{
+  border-bottom:0;
+}
+
+.ui.segment.chapter{
+  margin-top:35px;
+  padding:0;
+  border:none
+}
+/*********************************************/
