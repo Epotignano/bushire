@@ -9,6 +9,7 @@ import App from './containers/App';
 import AboutUs from './containers/AboutUs';
 import Contact from './containers/Contact';
 import TermsConditions from './containers/TermsConditions';
+import PrivacyPolicy from './containers/PrivacyPolicy';
 import Dashboard from './containers/Dashboard';
 import Login from './containers/Login';
 import ProfileFlowContainer from './containers/profileFlow/Container';
@@ -16,6 +17,7 @@ import Forbidden from './containers/Forbidden';
 import Auth from './containers/Auth';
 import Register from './containers/Register';
 import ListVehicle from './containers/admin/ListVehicle';
+import OptionalServices from './containers/OptionalServices';
 import About from './containers/admin/About';
 import ListServices from './containers/admin/ListServices';
 import configureStore from './store/configureStore';
@@ -47,6 +49,8 @@ render(
       <Route name="aboutUs" path="/about" component={AboutUs} />
       <Route name="terms" path="/terms" component={TermsConditions} />
       <Route name="contact" path="/contact" component={Contact} />
+      <Route name="privacypolicy" path="/privacy" component={PrivacyPolicy} />
+      <Route name="optionalservices" path="/optionalservices" component={OptionalServices} />
       <Route name="access" path="/access" component={Auth}>
         <Route name="login" path="/access/login" component={Login}/>
         <Route name="about" path="/access/about" component={About}/>

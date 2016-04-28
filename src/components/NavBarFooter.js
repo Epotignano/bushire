@@ -27,7 +27,7 @@ class NavBarFooter extends React.Component {
                 <Link className="item" to="/terms">Term and Conditions</Link>
               </div>
               <div className="five wide mobile three wide computer column">
-                <Link className="item" to="/">Privacy Policy</Link>
+                <Link className="item" to="/privacy">Privacy Policy</Link>
               </div>
               <div className="five wide mobile two wide computer column">
                 <Link className="item" to="/">Footermenu</Link>

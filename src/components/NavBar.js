@@ -62,7 +62,7 @@ class NavBar extends React.Component {
             <div className="row">
               <a href="#" className="item bigText">Airport Transfers</a>
                <a href="#" className="item bigText">Fleet</a>
-              <a href="#" className="item bigText">Optional services & Hill</a>
+              <Link to="/optionalservices" className="item bigText">Optional services & Hill</Link>
               <Link to="/about" className="item bigText">About us</Link>
               <a href="#" className="item bigText">FAQ</a>
               </div>
